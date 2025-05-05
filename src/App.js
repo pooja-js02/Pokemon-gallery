@@ -13,7 +13,7 @@ const App = () => {
       </div>
       <div>
       <footer className="footer">
-        <p>© 2025 Pokémon Gallery</p>
+       <p>© 2025 Pokémon Evolution Wheel. Data provided by PokéAPI.</p>
       </footer>
       </div>
     </div>
