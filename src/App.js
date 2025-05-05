@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import PokemonCircleNav from "./components/PokemonCircleNav";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-main">
+      <div className="app-container">
+        <h1>Pokémon Gallery</h1>
+        <div>
+          <PokemonCircleNav />
+        </div>
+      </div>
+      <div>
+      <footer className="footer">
+        <p>© 2025 Pokémon Gallery</p>
+      </footer>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

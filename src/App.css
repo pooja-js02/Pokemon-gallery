@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+/* Optional CSS - general styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+}
+
+/* Hide scrollbar on Webkit browsers */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;  /* For Internet Explorer 10+ */
+  scrollbar-width: none; /* For Firefox */
+}
+
+
+/* Main Application Container */
+.app-main {
+  flex: 1; /* Pushes the footer to the bottom */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Header Styles */
+h1 {
+  font-size: 2.5rem;
+  margin-top:40px;
+  margin-bottom: 40px;
+  color: #ffd700; /* Gold color for a standout title */
+  text-shadow: 2px 2px 5px #000; /* Adds a glowing effect */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Circle Navigation Container */
+.circle-container {
+  position: relative;
+  width: 560px;
+  height: 560px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-item {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.circle-item:nth-child(n) {
+  transform: rotate(calc(var(--child-index) * 1deg)) translate(250px) rotate(calc(var(--child-index) * -1deg));
+}
+
+.circle-item:hover {
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.5); /* Glow effect */
+}
+
+.circle-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Highlight selected Pokémon on the circular chain */
+.circle-item.selected {
+  background-color: #ffd700; /* Yellow background */
+  box-shadow: 0px 0px 10px 5px rgba(255, 215, 0, 0.5); /* Yellow glow effect */
+}
+
+/* Selected Pokémon Details */
+.selected-pokemon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+
+.selected-pokemon img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.selected-pokemon h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color:#ff4d00
+}
+
+.selected-pokemon ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.selected-pokemon li {
+  margin: 5px 0;
+  color:rgb(250, 227, 144);
+  font-weight: 600;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  /* Slightly lighter than body background */
+  color: #c0c0c0;
+  
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
